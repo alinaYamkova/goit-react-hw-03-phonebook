@@ -62,6 +62,7 @@ class App extends Component {
     );
   };
 
+  //збереження змiн (додавання/видалення) контактыв у localStorage
   componentDidMount() {
     const contacts = localStorage.getItem("contacts");
     const parsedContacts = JSON.parse(contacts);
@@ -69,7 +70,6 @@ class App extends Component {
       this.setState({ contacts: parsedContacts });
     }
   }
-
   componentDidUpdate(prevProps, prevState) {
     if (this.state.contacts !== prevState.contacts) {
       localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
